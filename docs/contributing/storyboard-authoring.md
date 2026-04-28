@@ -288,6 +288,8 @@ SHOULD include a substitution-safety phase covering the rule set at
 canonical three-step phase (`sync_*_probe_catalog` → `build_*_probe_creative`
 → `expect_substitution_safe`) lives as a `phase_template:` comment block in
 [`static/compliance/source/test-kits/substitution-observer-runner.yaml`](../../static/compliance/source/test-kits/substitution-observer-runner.yaml).
+<!-- The ../../static/ path above is correct here (docs/contributing/ → 2 levels → repo root).
+     dist snapshots rewrite it to ../../../../static/ via scripts/rewrite-dist-links.sh. -->
 The block uses `<<PLACEHOLDER>>` tokens for the specialism-specific bits
 (brand domain, catalog_id prefix, idempotency prefix) so you can materialize a
 new phase by doing a simple text substitution against those tokens.
