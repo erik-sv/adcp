@@ -351,7 +351,7 @@ ${escalationList}
 Respond with a JSON object matching this schema exactly:
 {
   "executive_summary": "2-3 sentence overview of the week's key findings",
-  "question_themes": [{"theme": "...", "count": estimated_frequency, "description": "...", "example_questions": ["..."]}],
+  "question_themes": [{"theme": "...", "sample_count": number, "description": "...", "example_questions": ["..."]}],
   "documentation_gaps": [{"topic": "...", "evidence": "what conversations revealed this gap", "suggested_action": "specific doc to write/update"}],
   "training_gaps": [{"topic": "...", "evidence": "...", "suggested_module": "specific training content to create"}],
   "addie_improvements": [{"area": "...", "evidence": "...", "suggested_fix": "...", "severity": "low|medium|high"}],
@@ -360,7 +360,7 @@ Respond with a JSON object matching this schema exactly:
 
 Guidelines:
 - Focus on actionable recommendations, not just observations
-- Group similar questions into themes, estimate frequency across all ${stats.total_threads} threads (not just samples)
+- Group similar questions into themes; count a theme occurrence only when it appears in a <user_message> tag — do not count occurrences from <assistant_response> tags; use semantic grouping (one occurrence per matching conversation); report sample_count as the count within these samples only, do not extrapolate to the full ${stats.total_threads} threads
 - For documentation gaps, be specific about what page/section to create or update
 - For training gaps, suggest specific module titles or topics
 - For Addie improvements, prioritize by impact (high = many users affected or poor experience)
